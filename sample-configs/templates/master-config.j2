@@ -484,7 +484,7 @@ myWorkers:
 {% if t_cluster_topology == "3x2" %}
 
 {% for index in range(1,9) %}
-{%     if  lookup('env',"HGROUP_NODE" ~ index) == "myWorkers" %}
+{%     if  lookup('env',"HGROUP_NODE" ~ index) == "myWorkers" and lookup('env',"NAME_NODE" ~ index)|length %}
 
     {{ lookup('env',"NAME_NODE" ~ index) }}.{{ lookup('env',"CLUSTER_NAME") }}.{{ lookup('env',"NETWORK_SUBDOMAIN") }} :
 
